@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     table {
+          text-align:center;
+          margin-left: 10%;
+          margin-right: 50%;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                       'Lucida Grande', 'Lucida Sans Unicode',
+                        Geneva, Verdana, sans-serif;
+        }
+        input, button {
+          padding: 12px 20px;           margin: 8px 0;
+          display: inline-block;        border: 1px solid #ccc;
+          border-radius: 4px;           box-sizing: border-box;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                       'Lucida Grande', 'Lucida Sans Unicode',
+                        Geneva, Verdana, sans-serif;
+          align: center;
+         }
+.defaultInput{
+background-color: white;
+}
+.ongoingInput{
+background-color: yellow;
+}
+.invalidInput{
+background-color: red;
+}
+</style>
+<body>
+    <form class="form" name="theform">
+    <div align="center">
+        <h1>Booking your place for your dinner!</h1>  
+      
+  
+        <label for="name">Name:</label>
+        <input type="text" id="name" size="22" class="defaultInput">
+         
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" size="22" class="defaultInput"><br>  
+        </div align="margin-left">
+        <br>
+        <div>
+        <h2>Select a time</h2>
+        <input type="radio" id="first" name="Seating" value="5" checked>
+        <label for="first">5:00</label><br>
+        <input type="radio" id="second" name="Seating" value="6">
+        <label for="second">6:00</label><br>
+        <input type="radio" id="third" name="Seating" value="7">
+        <label for="third">7:00</label><br>
+        <input type="radio" id="fourth" name="Seating" value="8">
+        <label for="fourth">8:00</label><br>
+        <br>
+        <h2>What would you like to have with us?</h2>
+        <input type="checkbox" id="starters" name="starters" value="starters">
+        <label for="starters">Starters</label><br>
+        <input type="checkbox" id="Main" name="Main" value="main">
+        <label for="Main">Main Course</label><br>
+        <input type="checkbox" id="dessert" name="dessert" value="dessert">
+        <label for="dessert">dessert</label><br>
+        <input type="checkbox" id="drinks" name="drinks" value="drinks">
+        <label for="drinks">Drinks</label><br>
+        </div>
+        <button onclick="validation()" id="submit" class="submit-button">Submit</button><p id="message"></p>
+        
+</fieldset>
+</div>
+</form>
+<div><h1>Mahib Rana Magar 22067423</h1></div>
+
+</body>
+<script>
+    var nameInput=document.getElementById("name");
+    var phoneNumberInput=document.getElementById("phone");
+    var error="";
+function validation(){
+    clear();
+    var valid=true;
+    var name=nameInput.value;
+    var phoneNumber=phoneNumberInput.value;
+    var message=document.getElementById("message");
+    var submitButton=document.getElementById("submit")
+    var error="";
+
+//Name Validation
+var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+if(name==""){
+    error="Error: Name is empty."
+   // valid=false;
+}else if(!regName.test(name)){
+    error="Error: First and last names are required"
+  // valid=false;
+}else{
+    error=""
+   //valid=true;
+}
+
+
+//PhoneNumber Validation
+numberReg=/[0-9]/
+if(phoneNumber==""){
+    error="Error: Phone Number is empty."
+    //valid=false;
+}else if(phoneNumber.length!=6){
+    error=" Error: Phone numbers must have exactly 6 characters. "   
+    //valid=false;
+}else if((text.charAt(0)).match(numberReg)){
+    error="";
+    //valid=true;
+}else{
+    error="Error: Phone number must start with numbers."
+   // valid=false;
+}
+
+/*if (valid){
+    submitButton.disabled=false;
+}else{
+    submitButton.disabled=true;
+}*/
+
+}
+function clear(){
+    nameInput="";
+    phoneNumberInput="";
+    error="";
+
+}
+
+</script>
+</html>
